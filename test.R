@@ -1,8 +1,9 @@
-library(tidyverse)
-library(palmerpenguins)
+library(sf)
+library(here)
 
-penguins %>%
-  ggplot(aes(x = bill_depth_mm)) +
-  geom_histogram()
+st_layers(here("prac3", "gadm36_AUS.gpkg"))
 
-# hello here
+aus <- st_read(here("prac3", "gadm36_AUS.gpkg"),
+          layer="gadm36_AUS_0")
+
+print(aus)
